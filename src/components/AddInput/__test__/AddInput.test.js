@@ -17,12 +17,12 @@ describe("AddInput", () => {
       <AddInput setTodos={mockedSetTodo} todos={[]} />
     );
 
-    const button = screen.getByRole("button", { name: /Add/i });
-    const input = getByPlaceholderText("Add a new task here...");
-    fireEvent.change(input, { target: { value: "New task" } });
-    fireEvent.click(button);
+    const buttonElement = screen.getByRole("button", { name: /Add/i });
+    const inputElement = getByPlaceholderText("Add a new task here...");
+    fireEvent.change(inputElement, { target: { value: "New task" } });
+    fireEvent.click(buttonElement);
     expect(mockedSetTodo).toHaveBeenCalled();
-    expect(input.value).toBe("");
+    expect(inputElement.value).toBe("");
   });
 
   it("should be able to type into input", () => {
